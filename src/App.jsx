@@ -1,34 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import RepetitionExercise from './components/RepetitionExercise'
+import DurationExercise from './components/DurationExercise'
+
+const exercises = [
+  { name: 'Push Ups', type: 'repetition' },
+  { name: 'Sit Ups', type: 'repetition' },
+  { name: 'Plank', type: 'duration' },
+  { name: 'Run', type: 'duration' },
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [current, setCurrent] = useState(null)
 
-  return (
-    <>
+  function goBackToMainMenu() {
+  if (current !== null) {
+    setCurrent(null)
+  }
+}
+  // If no exercise selected, it'll stay in the main menu
+  if (!current) {
+    return (
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Exercise Tracker</h1>
+        {exercises.map((ex) => (
+          <button key={ex.name} onClick={() => setCurrent(ex)}>
+            {ex.name}
+          </button>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    )
+  }
+
+  // Once selected, show the right component based on type of exercise
+  return (
+    <div>
+      {current.type === 'repetition'
+        ? <RepetitionExercise name={current.name} />
+        : <DurationExercise name={current.name} />
+      }
+      {current !== null && <button onClick={goBackToMainMenu}>Back to Main Menu</button>}
+    </div>
   )
 }
 
