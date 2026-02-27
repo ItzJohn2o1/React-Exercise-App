@@ -1,16 +1,59 @@
-# React + Vite
+# React Exercise App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based exercise tracker built for UCF DIG4639C (Web Design) — Spring 2026.
 
-Currently, two official plugins are available:
+Users can select an exercise from a menu and track it using either a rep counter or a running timer. Each exercise screen includes a back button to return to the main menu.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Exercise Menu** — Select from a list of exercises, each labeled as a repetition or duration type
+- **Repetition Exercise** — Tracks a rep counter with increment and reset buttons
+- **Duration Exercise** — Runs a live timer (MM:SS format) with start and reset buttons
+- **Back to Menu** — Return to the exercise list from any exercise screen
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React (Vite)
+- JavaScript (JSX)
+- CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```
+src/
+├── App.jsx                              # Main screen switcher and exercise menu
+├── App.css
+└── components/
+    ├── RepetitionExercise/
+    │   └── index.jsx                    # Counter component
+    └── DurationExercise/
+        └── index.jsx                    # Timer component
+```
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ItzJohn2o1/React-Exercise-App.git
+   ```
+
+2. Navigate into the project folder:
+   ```bash
+   cd React-Exercise-App
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to `http://localhost:5173`
+
+## Course Info
+
+Built for **DIG4639C Web Design** — UCF Spring 2026
